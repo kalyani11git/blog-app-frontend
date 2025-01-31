@@ -9,7 +9,7 @@ export default function FullBlog() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/GetBlog/${id}`);
+        const response = await fetch(`https://blog-app-backend-2-xd5z.onrender.com/GetBlog/${id}`);
         const data = await response.json();
         setBlog(data.blog);
       } catch (error) {

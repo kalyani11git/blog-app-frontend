@@ -12,7 +12,7 @@ export default function Navbar({ onAddBlog }) {
     // Fetch all blogs when the component mounts
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/GetBlogs");
+        const response = await fetch("https://blog-app-backend-2-xd5z.onrender.com/GetBlogs");
         const data = await response.json();
         setBlogs(data.blogs);
       } catch (error) {

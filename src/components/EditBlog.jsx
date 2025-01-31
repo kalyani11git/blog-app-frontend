@@ -17,7 +17,7 @@ export default function EditBlog() {
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/GetBlogs`);
+        const response = await fetch(`https://blog-app-backend-2-xd5z.onrender.com/GetBlogs`);
         const data = await response.json();
         const blog = data.blogs.find((blog) => blog._id === id);
 
@@ -72,7 +72,7 @@ export default function EditBlog() {
     if (image) formData.append("image", image);
 
     try {
-      const response = await fetch(`http://localhost:5000/UpdateBlog/${id}`, {
+      const response = await fetch(`https://blog-app-backend-2-xd5z.onrender.com/UpdateBlog/${id}`, {
         method: "PUT",
         body: formData,
       });
