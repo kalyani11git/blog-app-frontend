@@ -1,9 +1,3 @@
 [build]
   command = "npm install && npm run build"
-  publish = "build"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = true
+  publish = "dist" # For Vite, this is the build output directory
