@@ -21,6 +21,31 @@ export default function Home() {
     fetchBlogs();
   }, []);
 
+
+  //delete function
+  const handleDelete = async (blogId) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this blog?");
+    if (!confirmDelete) return;
+  
+    try {
+      const response = await fetch(`https://blog-app-backend-2-xd5z.onrender.com/DeleteBlog/${blogId}`, {
+        method: "DELETE",
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to delete the blog");
+      }
+  
+      // Update state after deletion
+      setBlogs((prevBlogs) => prevBlogs.filter((blog) => blog._id !== blogId));
+      alert("Blog deleted successfully!");
+    } catch (error) {
+      console.error("Error deleting blog:", error);
+      alert("Failed to delete the blog");
+    }
+  };
+  
+
   // Function to strip HTML tags from description
   const stripHtmlTags = (html) => {
     const doc = new DOMParser().parseFromString(html, "text/html");
